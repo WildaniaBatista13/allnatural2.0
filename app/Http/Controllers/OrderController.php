@@ -4,25 +4,30 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use App\Traits\GeneratesPDFs;
 class OrderController extends Controller
 {
+    use GeneratesPDFs;
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($type=null,$state=null)
     {
-        $orders=Order::all();
+        $state=$state;
+        if($state!=null){
+            $orders=Order::where('payment_status',$state)->get();
+        }else{
+            $orders=Order::all();
+        }
+        
 
-        return view('orders',compact('orders'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        if($type=='admin'){
+            return view('admin.orders',compact('orders','state'));
+        }else{
+            return view('orders',compact('orders'));
+        }
+        
     }
 
     /**
@@ -31,37 +36,77 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         //
+        $user = $request->user();
+
+        $request=$request->all();
+
+        $request['user_id']=Auth::user()->id;
+
+        $request['address']='flat no. '. $request['flat'] .' '. $request['street'] .' '. $request['city'] .' '. $request['state'] .' '. $request['country'] .' - '. $request['pin_code'];
+
+        $request['placed_on']=date('d-M-Y');
+
+        $request['payment_status']='pendiente';
+
+        $order=Order::create($request);
+
+        $user->carts()->delete();
+
+        //return redirect()->route('order.index');
+
+        // Redirigir al usuario a la visualización del resumen en PDF
+        return redirect()->route('order.summary', ['orderId' => $order->id]);
+
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(order $order)
+    public function showOrderSummary($orderId)
     {
-        //
+        $order = Order::findOrFail($orderId);
+
+        return $this->modalPDF('plantillas.checkout', ['order' => $order], 'resumen.pdf');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(order $order)
-    {
-        //
+    public function generatepdf($type=null){
+
+        //downloadPDF($view, $data, $fileName = 'document.pdf')
+        if($type!=null){
+            $orders = Order::where('payment_status',$type)->get();
+            $type=$type.'s';
+        }else{
+            
+            $orders = Order::all();
+        }
+        
+
+        $name = date('dmY').'_order.pdf';
+
+        return $this->downloadPDF('plantillas.order', ['orders' => $orders,'type'=>$type], $name);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, order $order)
+    public function update(Request $request, Order $order)
     {
         //
+
+        $data = $request->all();
+
+        $model = $order;
+
+        $model->update($data);
+
+        return redirect()->route('order.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(order $order)
+    public function destroy(Order $order)
     {
         //
+
+        
+        $order->delete();
+        
+
+        return redirect()->route('order.index',['type'=>'admin']);
     }
 }

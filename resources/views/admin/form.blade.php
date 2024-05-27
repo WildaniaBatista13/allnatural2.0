@@ -26,7 +26,7 @@
    @if ($update)
     <div class="flex-btn">
         <input type="submit" class="btn" value="{{ $submit }}" name="add_product">
-        <a href="{{ route('product.index') }}" class="option-btn">go back</a>
+        <a href="{{ route('product.index') }}" class="option-btn">Regresar</a>
     </div>
    @else
    <input type="submit" class="btn" value="{{ $submit }}" name="add_product">

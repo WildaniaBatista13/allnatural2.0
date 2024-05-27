@@ -12,7 +12,7 @@
          <br>Nuestra misión es ofrecer soluciones naturales que brinden resultados visibles y duraderos, respetando la salud natural del cabello. Utilizamos ingredientes de origen vegetal cuidadosamente seleccionados y cultivados de forma sostenible, y nos comprometemos con prácticas de producción responsables que minimizan el impacto ambiental.<br>
          
          <br>Creemos que la belleza real proviene de la salud y la armonía con el medio ambiente. Por eso, All Natural no es solo una marca de productos capilares, sino un estilo de vida consciente y sostenible.</p><br>
-         <a href="about.php" class="btn">Nuestros Productos</a>
+         <a href="{{ route('shop.index') }}" class="btn">Nuestros Productos</a>
       </div>
    </div>
    <!-- Resto del contenido de la sección about -->

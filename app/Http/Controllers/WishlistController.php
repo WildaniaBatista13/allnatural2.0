@@ -60,8 +60,11 @@ class WishlistController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(deseos $deseos)
+    public function destroy(Wishlist $wishlist)
     {
         //
+        Wishlist::query()->delete();
+
+        return redirect()->route('wishlist.index');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,12 +36,30 @@ class CartController extends Controller
     {
         //
         $request=$request->all();
-
+        //dd($request);
         $request['user_id']=Auth::user()->id;
 
-        Cart::create($request);
+        if(isset($request['add_to_cart'])){
+            
+            Cart::create($request);
 
-        return redirect()->route('cart.index');
+            $wish=Wishlist::where('name',$request['name'])->where('user_id',$request['user_id'])->first();
+
+            if($wish){
+                $wish->delete();
+            }
+            
+            return redirect()->route('cart.index');
+
+        }else{
+
+            Wishlist::create($request);
+    
+            return redirect()->route('wishlist.index');
+
+        }
+
+        
     }
 
     /**

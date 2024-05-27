@@ -11,8 +11,11 @@ use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Support\Str;
 
+use App\Traits\GeneratesPDFs;
+
 class ProductController extends Controller
 {
+    use GeneratesPDFs;
     //
 
     public function index(){
@@ -27,6 +30,26 @@ class ProductController extends Controller
             'products' => $products,
             'update' => false,
         ]);
+    }
+
+    public function generatepdf(){
+
+        $products = Product::all();
+        
+
+        $name = date('dmY').'_product.pdf';
+
+        return $this->downloadPDF('plantillas.product', ['products' => $products], $name);
+    }
+
+    public function search(Request $request){
+        $txtSearch = $request->input('query');
+
+        $products = Product::where('name','LIKE',"%{$txtSearch}%")->get();
+
+        return view('user.search',compact('products','txtSearch'));
+
+
     }
 
     public function store(Request $request){

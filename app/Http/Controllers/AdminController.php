@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Order;
+use App\Models\Message;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -21,7 +22,9 @@ class AdminController extends Controller
 
         $orders=Order::all();
 
-        return view('admin.panel',compact('users','orders','products'));
+        $messages=Message::all();
+
+        return view('admin.panel',compact('users','orders','products','messages'));
     }
 
     /**

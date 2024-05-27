@@ -7,6 +7,8 @@
 
         <h1 class="title">Añadir nuevo producto</h1>
      
+        <x-button-pdf ruta="{{ route('product.admin.pdf') }}"></x-button-pdf>
+
         @include('admin.form', [
             'data' => $data,
             'action' => $action,

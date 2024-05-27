@@ -12,22 +12,22 @@
      
            <div class="box">
            <?php
-              $total_pendings = 0;
+              $total_pendings = $orders->where('payment_status','pendiente')->count();
               
            ?>
            <h3>$<?= $total_pendings; ?>/-</h3>
            <p>Pendientes</p>
-           <a href="admin_orders.php" class="btn">Ver órdenes</a>
+           <a href="{{ route('order.admin.index', ['type' => 'admin','state'=>'pendiente']) }}" class="btn">Ver órdenes</a>
            </div>
      
            <div class="box">
            <?php
-              $total_completed = 0;
+              $total_completed = $orders->where('payment_status','completado')->count();
               
            ?>
            <h3>$<?= $total_completed; ?>/-</h3>
            <p>Órdenes completadas</p>
-           <a href="admin_orders.php" class="btn">Ver órdenes</a>
+           <a href="{{ route('order.admin.index', ['type' => 'admin','state'=>'completado']) }}" class="btn">Ver órdenes</a>
            </div>
      
            <div class="box">
@@ -37,7 +37,7 @@
            ?>
            <h3><?= $number_of_orders; ?></h3>
            <p>Pedidos realizados</p>
-           <a href="admin_orders.php" class="btn">Ver órdenes</a>
+           <a href="{{ route('order.admin.index', ['type' => 'admin']) }}" class="btn">Ver órdenes</a>
            </div>
      
            <div class="box">
@@ -83,11 +83,13 @@
            <div class="box">
            <?php
               
-              $number_of_messages = 0;
+              $number_of_messages = $messages->count();
+
+
            ?>
            <h3><?= $number_of_messages; ?></h3>
            <p>Total de mensajes</p>
-           <a href="admin_contacts.php" class="btn">Ver mensajes</a>
+           <a href="{{ route('message.admin.index',['type'=>'admin']) }}" class="btn">Ver mensajes</a>
            </div>
      
         </div>

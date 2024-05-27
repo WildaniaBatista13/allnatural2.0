@@ -9,7 +9,6 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AdminController;
 
 use App\Http\Controllers\ProductController;
@@ -19,6 +18,8 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ViewController;
 
 use App\Http\Controllers\UserController;
+
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,13 +36,15 @@ use App\Http\Controllers\UserController;
 
 
 
-Route::group(['middleware' => ['auth', 'verified','admintypevalid']], function() {
+Route::group(['middleware' => ['auth', 'verified','admintypevalid'], 'prefix' => 'admin'], function() {
 
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
 
     Route::get('/product', [ProductController::class, 'index'])->name('product.index');
 
     Route::get('/user/{type?}', [UserController::class, 'index'])->name('user.admin.index');
+
+    Route::post('/user/pdf/{type?}', [UserController::class, 'generatepdf'])->name('user.admin.pdf');
 
     Route::post('/product/store', [ProductController::class, 'store'])->name('product.store');
 
@@ -50,6 +53,20 @@ Route::group(['middleware' => ['auth', 'verified','admintypevalid']], function()
     Route::put('/product/update/{product}', [ProductController::class, 'update'])->name('product.update');
 
     Route::get('/product/destroy/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
+
+    Route::post('/product/pdf', [ProductController::class, 'generatepdf'])->name('product.admin.pdf');
+
+    Route::get('/orders/{type?}/{state?}', [OrderController::class, 'index'])->name('order.admin.index');
+
+    Route::get('/orders/destroy/{order?}', [OrderController::class, 'destroy'])->name('order.destroy');
+
+    Route::post('/orders/pdf/{type?}', [OrderController::class, 'generatepdf'])->name('order.admin.pdf');
+
+    Route::put('/orders/update/{order}', [OrderController::class, 'update'])->name('order.update');
+
+    Route::get('/contact/{type?}', [MessageController::class, 'index'])->name('message.admin.index');
+
+    Route::get('/contact/destroy/{message}', [MessageController::class, 'destroy'])->name('message.destroy');
 
 });
 
@@ -64,15 +81,17 @@ Route::group(['middleware' => ['auth', 'verified','usertypevalid']], function()
 
     Route::get('/view-page/{product}', [ViewController::class, 'index'])->name('view.page.index');
     
-    Route::get('/orders', [OrderController::class, 'index'])->name('order.index');
+    Route::get('/orders/{type?}', [OrderController::class, 'index'])->name('order.index');
+    
+    Route::post('/orders/store', [OrderController::class, 'store'])->name('order.store');
     
     Route::get('/about', function () {
         return view('about');
     })->name('about.index');
     
-    Route::get('/contact', function () {
-        return view('contact');
-    })->name('contact.index');
+    Route::get('/contact/{type?}', [MessageController::class, 'index'])->name('message.index');
+
+    Route::post('/contact/store', [MessageController::class, 'store'])->name('message.store');
 
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 
@@ -84,11 +103,13 @@ Route::group(['middleware' => ['auth', 'verified','usertypevalid']], function()
 
     Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
 
+    Route::get('/wishlist/destroy', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
+
     Route::get('/category/{name}', [CategoryController::class, 'index'])->name('category.index');
 
-    Route::get('/search', [SearchController::class, 'index'])->name('search.index');
+    Route::get('/search', [ProductController::class, 'search'])->name('product.search');
 
-    
+    Route::get('/order/{orderId}/summary', [OrderController::class, 'showOrderSummary'])->name('order.summary');
 
 });
 
@@ -99,6 +120,7 @@ Route::group(['middleware' => ['auth', 'verified','usertypevalid']], function()
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/profile/destroy/{user}/{ruta?}', [ProfileController::class, 'admin_destroy'])->name('profile.destroy.admin');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });

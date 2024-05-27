@@ -26,7 +26,7 @@
             <input type="hidden" name="id" value="<?= $cart->id; ?>">
             <div class="flex-btn">
                 <input type="number" min="1" value="<?= $cart->quantity; ?>" class="qty" name="quantity">
-                <input type="submit" value="update" name="update_qty" class="option-btn">
+                <input type="submit" value="Actualizar" name="update_qty" class="option-btn">
             </div>
             <div class="sub-total"> sub total : <span>$<?= $sub_total = ($cart->price * $cart->quantity); ?>/-</span> </div>
             </form>
@@ -37,16 +37,16 @@
             @endforeach
         @else
 
-            <p class="empty">your cart is empty</p>
+            <p class="empty">Carrito vacio</p>
 
         @endif
         </div>
      
         <div class="cart-total">
            <p> total : <span>$<?= $grand_total; ?>/-</span></p>
-           <a href="{{ route('shop.index') }}" class="option-btn">continue comprando</a>
-           <a href="{{ route('cart.destroy') }}" class="delete-btn <?= ($grand_total > 1)?'':'disabled'; ?>">delete all</a>
-           <a href="{{ route('checkout.index') }}" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">proceed to checkout</a>
+           <a href="{{ route('shop.index') }}" class="option-btn">Continuar comprando</a>
+           <a href="{{ route('cart.destroy') }}" class="delete-btn <?= ($grand_total > 1)?'':'disabled'; ?>">Eliminar todo</a>
+           <a href="{{ route('checkout.index') }}" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">Proceder a la compra</a>
         </div>
      
      </section>

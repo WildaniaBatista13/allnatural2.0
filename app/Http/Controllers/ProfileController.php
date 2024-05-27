@@ -109,4 +109,17 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    public function admin_destroy(User $user,$ruta=null)
+    {
+        $user->delete();
+        
+        $redirect=null;
+
+        if($ruta!=null&&$ruta!=''){
+            $redirect=$ruta;
+        }
+
+        return redirect()->route('user.admin.index',['user'=>$redirect]);
+    }
 }

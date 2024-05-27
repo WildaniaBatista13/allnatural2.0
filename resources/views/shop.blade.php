@@ -13,7 +13,7 @@
 
 <section class="products">
 
-   <h1 class="title">latest products</h1>
+   <h1 class="title">Ultimos productos</h1>
 
    <div class="box-container">
    @if ($products->isNotEmpty())
@@ -30,12 +30,12 @@
          <input type="hidden" name="price" value="<?= $product['price']; ?>">
          <input type="hidden" name="image" value="<?= $product['image']; ?>">
          <input type="number" min="1" value="1" name="quantity" class="qty">
-         <input type="submit" value="add to wishlist" class="option-btn" name="add_to_wishlist">
-         <input type="submit" value="add to cart" class="btn" name="add_to_cart">
+         <input type="submit" value="Agregar a lista de deseos" class="option-btn" name="add_to_wishlist">
+         <input type="submit" value="Agregar al carrito" class="btn" name="add_to_cart">
       </form>
       @endforeach
    @else
-      <p class="empty">no products added yet!</p>
+      <p class="empty">Aún no se han añadido productos!</p>
    @endif
    
 

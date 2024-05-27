@@ -16,18 +16,19 @@
 
         @if($wishlists->isNotEmpty())
             @foreach ($wishlists as $wish)
-            <form action="" method="POST" class="box">
-            <a href="wishlist.php?delete=<?= $wish['id']; ?>" class="fas fa-times" onclick="return confirm('delete this from wishlist?');"></a>
-            <a href="view_page.php?pid=<?= $wish['pid']; ?>" class="fas fa-eye"></a>
-            <img src="uploaded_img/<?= $wish['image']; ?>" alt="">
-            <div class="name"><?= $wish['name']; ?></div>
-            <div class="price">$<?= $wish['price']; ?>/-</div>
-            <input type="number" min="1" value="1" class="qty" name="p_qty">
-            <input type="hidden" name="pid" value="<?= $wish['pid']; ?>">
-            <input type="hidden" name="p_name" value="<?= $wish['name']; ?>">
-            <input type="hidden" name="p_price" value="<?= $wish['price']; ?>">
-            <input type="hidden" name="p_image" value="<?= $wish['image']; ?>">
-            <input type="submit" value="add to cart" name="add_to_cart" class="btn">
+            <form action="{{ route('cart.store') }}" method="POST" class="box">
+            @csrf
+                <a href="wishlist.php?delete=<?= $wish['id']; ?>" class="fas fa-times" onclick="return confirm('delete this from wishlist?');"></a>
+                <a href="{{ route('view.page.index',$wish) }}" class="fas fa-eye"></a>
+                <img src="{{ asset('/storage/'.$wish['image']) }}" alt="">
+                <div class="name"><?= $wish['name']; ?></div>
+                <div class="price">$<?= $wish['price']; ?>/-</div>
+                <input type="number" min="1" value="1" class="qty" name="quantity">
+                <input type="hidden" name="pid" value="<?= $wish['pid']; ?>">
+                <input type="hidden" name="name" value="<?= $wish['name']; ?>">
+                <input type="hidden" name="price" value="<?= $wish['price']; ?>">
+                <input type="hidden" name="image" value="<?= $wish['image']; ?>">
+                <input type="submit" value="add to cart" name="add_to_cart" class="btn">
             </form>
             <?php
             $grand_total += $wish['price'];
@@ -41,8 +42,8 @@
      
         <div class="wishlist-total">
            <p> total : <span>$<?= $grand_total; ?>/-</span></p>
-           <a href="shop.php" class="option-btn">continue comprandog</a>
-           <a href="wishlist.php?delete_all" class="delete-btn <?= ($grand_total > 1)?'':'disabled'; ?>">delete all</a>
+           <a href="{{ route('shop.index') }}" class="option-btn">continue comprandog</a>
+           <a href="{{ route('wishlist.destroy') }}" class="delete-btn <?= ($grand_total > 1)?'':'disabled'; ?>">delete all</a>
         </div>
      
      </section>

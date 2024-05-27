@@ -39,16 +39,16 @@
             <a href="{{ route('shop.index') }}">Tienda</a>
             <a href="{{ route('order.index') }}">Ordenes</a>
             <a href="{{ route('about.index') }}">Sobre nosotros</a>
-            <a href="{{ route('contact.index') }}">Contacto</a>
+            <a href="{{ route('message.index',['type'=>'user']) }}">Contacto</a>
         </nav>
 
         <div class="icons">
             <div id="menu-btn" class="fas fa-bars"></div>
             <div id="user-btn" class="fas fa-user"></div>
             
-            <a href="{{ route('search.index') }}" class="fas fa-search"></a>
+            <a href="{{ route('product.search') }}" class="fas fa-search"></a>
 
-            <a href="{{ route('wishlist.index') }}"><i class="fas fa-heart"></i><span>(0)</span></a>
+            <a href="{{ route('wishlist.index') }}"><i class="fas fa-heart"></i><span>({{ $WishlistCount }})</span></a>
             <a href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart"></i><span>({{ $cartCount }})</span></a>
         </div>
 
