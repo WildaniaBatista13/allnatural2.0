@@ -19,7 +19,7 @@
                 @csrf
                 @method('PUT')
             <a href="{{ route('cart.destroy',$cart) }}" class="fas fa-times" onclick="return confirm('delete this from cart?');"></a>
-            <a href="view_page.php?pid=<?= $cart->pid; ?>" class="fas fa-eye"></a>
+            <a href="{{ route('view.page.index',$cart->pid) }}" class="fas fa-eye"></a>
             <img src="{{ asset('/storage/'.$cart['image']) }}" alt="">
             <div class="name"><?= $cart->name; ?></div>
             <div class="price">$<?= $cart->price; ?>/-</div>
