@@ -39,11 +39,12 @@
                  <div class="flex-btn">
                     <input type="submit" name="update_order" class="option-btn" value="Actualizar">
                 </form>
-                    <form action="{{ route('order.destroy',$order) }}" method="GET">
+                    
+                    <form action="{{ route('order.admin.destroy',$order) }}" method="POST">
                         @csrf 
-
-                        <input type="submit" name="update_order" class="delete-btn" value="Borrar">
-
+        
+                        <input type="submit" class="delete-btn" value="Borrar">
+        
                     </form>
 
                     <!----<a href="admin_orders.php?delete=<?= $order['id']; ?>" class="delete-btn" onclick="return confirm('¿Borrar esta orden?');">Borrar</a>---->

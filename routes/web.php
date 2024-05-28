@@ -58,7 +58,7 @@ Route::group(['middleware' => ['auth', 'verified','admintypevalid'], 'prefix' =>
 
     Route::get('/orders/{type?}/{state?}', [OrderController::class, 'index'])->name('order.admin.index');
 
-    Route::get('/orders/destroy/{order?}', [OrderController::class, 'destroy'])->name('order.destroy');
+    Route::post('/orders/destroy/{order}', [OrderController::class, 'destroy'])->name('order.admin.destroy');
 
     Route::post('/orders/pdf/{type?}', [OrderController::class, 'generatepdf'])->name('order.admin.pdf');
 
