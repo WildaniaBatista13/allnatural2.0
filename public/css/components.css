@@ -1,16 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Belleza&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Belleza&family=Dancing+Script:wght@400..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
 :root{
    --dark-green:#173021;
    --blue:#A8EEF1;
+   --dark-blue:#9ad7d9;
    --brown:#9F6C3A;
-   --green:#A8ED4E;
+   --dark-brown:#7B4618;
+   --beight:#AD8042;
+   --green1:#2E401C;
+   --green2:#647332;
+   --green:#647332;
    --orange:#f39c12;
    --red:#e74c3c;
-   --black:#333;
+   --black:#000000;
    --light-color:#666;
    --white:#fff;
    --light-bg:#f6f6f6;
@@ -19,12 +24,16 @@
 }
 
 *{
-   font-family: "Poppins", sans-serif;
+   font-family: "EB Garamond", serif;
    margin:0; padding:0;
    box-sizing: border-box;
    outline: none; border:none;
    text-decoration: none;
    color:var(--black);
+}
+
+.logo span {
+   color: var(--green2); /* Cambia el color del span a rojo (puedes cambiarlo al color que desees) */
 }
 
 .container-logo {
@@ -52,7 +61,7 @@
 }
 
 *::-webkit-scrollbar-thumb{
-   background-color: var(--brown);
+   background-color: var(--dark-brown);
 }
 
 body{
@@ -95,22 +104,22 @@ section{
 }
 
 .content .btn{
-   background-color: var(--brown);
+   background-color: var(--dark-brown);
    border-radius: .8rem;
 }
 
 .home-category .btn{
    background-color: rgba(8, 8, 8, 0.1);
-   border-radius: .8rem;
-   font-size: 17px;
-   font-family: 'poppins' sans-serif;
+   border-radius: .4rem; 
+   font-size: 16px; 
    font-weight: bold;
-   
+   padding: 5px 10px; 
+   margin-top: 30px; 
 }
 
 
 .btn{
-   background-color: var(--green);
+   background-color: var(--brown);
 }
 
 .delete-btn{
@@ -118,13 +127,13 @@ section{
 }
 
 .option-btn{
-   background-color: var(--orange);
+   background-color: var(--green2);
 }
 
 .btn:hover,
 .delete-btn:hover,
 .option-btn:hover{
-   background-color: var(--black);
+   background-color: var(--green2);
 }
 
 .flex-btn{
@@ -142,7 +151,6 @@ section{
    margin-bottom: 2rem;
    color:var(--black);
    font-size: 2.5rem;
-   font-family: "Poppins", sans-serif;
 }
 
 .message{
@@ -242,7 +250,7 @@ section{
 }
 
 .container-hero {
-	background-color: var(--white);
+	background-color: var(--dark-brown);
 }
 
 .hero {
@@ -279,9 +287,8 @@ section{
 
 .container-logo h1 a {
 	text-decoration: none;
-	color: #9F6C3A;
+	color: #fff;
 	font-size: 3rem;
-	text-transform: uppercase;
 	letter-spacing: -1px;
 }
 
@@ -319,7 +326,7 @@ section{
 
 
 .header{
-   background: var(--brown);
+   background: var(--white);
    position: sticky;
    top:0; left:0; right:0;
    z-index: 1000;
@@ -348,7 +355,7 @@ section{
 .header .flex .navbar a{
    margin:0 1rem;
    font-size: 2rem;
-   color:var(--white);
+   color:var(--black);
 }
 
 .header .flex .navbar a:hover{
@@ -357,23 +364,23 @@ section{
 
 .header .flex .icons > *{
    font-size: 2.5rem;
-   color:var(--white);
+   color:var(--dark-brown);
    cursor: pointer;
    margin-left: 1.5rem;
 }
 
 .header .flex .icons > *:hover{
-   color:var(--dark-green);
+   color:var(--brown);
 }
 
 .header .flex .icons a span,
 .header .flex .icons a i{
-   color:var(--white);
+   color:var(--dark-brown);
 }
 
 .header .flex .icons a:hover span,
 .header .flex .icons a:hover i{
-   color:var(--dark-green);
+   color:var(--brown);
 }
 
 .header .flex .icons a span{
@@ -382,7 +389,7 @@ section{
 
 #menu-btn{
    display: none;
-   background-color: #9F6C3A;
+   background-color: #ffffff;
 }
 
 
@@ -477,7 +484,7 @@ section{
 
 .footer {
    position: relative;
-   background-color: var(--brown); 
+   background-color: var(--white); 
 }
 
 .wave-container {
@@ -505,7 +512,7 @@ svg {
 
 .footer .box-container .box h3 {
    text-transform: uppercase;
-   color: var(--white);
+   color: var(--black);
    margin-bottom: 2rem;
    font-size: 2rem;
    font-family: "Belleza", sans-serif;
@@ -517,13 +524,13 @@ svg {
    padding: 1.3rem 0;
    font-family: "Belleza", sans-serif;
    font-size: 1.6rem;
-   color: var(--white);
+   color: var(--black);
    transition: color 0.3s ease;
 }
 
 .footer .box-container .box a i,
 .footer .box-container .box p i {
-   color: var(--green);
+   color: var(--brown);
    padding-right: 1rem;
 }
 
@@ -547,12 +554,12 @@ svg {
    line-height: 1.5;
    text-align: center;
    font-size: 2rem;
-   color: var(--white);
+   color: var(--black);
    transition: color 0.3s ease; 
 }
 
 .footer .credit span {
-   color: var(--green);
+   color: var(--brown);
 }
 
 

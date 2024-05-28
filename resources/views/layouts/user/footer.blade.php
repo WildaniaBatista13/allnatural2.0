@@ -38,10 +38,10 @@
  
     </section>
  
-    <p class="credit"> &copy; copyright @ <?= date('Y'); ?> by <span>All Natural</span> | Todos los derechos reservados! </p>
+    
     <div class="wave-container">
        <svg viewBox="0 0 500 150" preserveAspectRatio="none">
-          <path d="M-40 100 C 40 150, 160 0, 300 100 L 500 0 V 150 H -40 Z" fill="#A8ED4E"></path>
+          <path d="M-40 100 C 40 150, 160 0, 300 100 L 500 0 V 150 H -40 Z" fill="#647332"></path>
        </svg>
     </div>
  </footer>

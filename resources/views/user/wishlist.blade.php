@@ -42,8 +42,8 @@
      
         <div class="wishlist-total">
            <p> total : <span>$<?= $grand_total; ?>/-</span></p>
-           <a href="{{ route('shop.index') }}" class="option-btn">continue comprandog</a>
-           <a href="{{ route('wishlist.destroy') }}" class="delete-btn <?= ($grand_total > 1)?'':'disabled'; ?>">delete all</a>
+           <a href="{{ route('shop.index') }}" class="option-btn">continue comprando</a>
+           <a href="{{ route('wishlist.destroy') }}" class="delete-btn <?= ($grand_total > 1)?'':'disabled'; ?>">eliminar todo</a>
         </div>
      
      </section>

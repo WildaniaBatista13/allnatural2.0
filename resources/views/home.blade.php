@@ -10,47 +10,71 @@
             <span>Pureza y Frescura en Cada Producto</span>
             <h3>Nueva línea Infantil</h3>
             <p>Nuestra nueva línea infantil está diseñada para brindar una limpieza suave y nutritiva, dejando el cabello de tus pequeños fresco, suave y radiante.</p>
-            <a href="{{ route('category.index',['name'=>'vegitables']) }}" class="btn">comprar ahora</a>
+            <a href="{{ route('category.index',['name'=>'vegitables']) }}" class="btn">nuestros productos</a>
          </div>
 
       </section>
 
-   </div>
+   </div><br>
+
+   
+
+   <section class="p-category">
+
+      <a href="{{ route('category.index',['name'=>'fruits']) }}">Líneas Capilares</a>
+      <a href="{{ route('category.index',['name'=>'vegitables']) }}">Línea Infantil</a>
+      <a href="{{ route('category.index',['name'=>'fish']) }}">Línea Masculina</a>
+      <a href="{{ route('category.index',['name'=>'meat']) }}">Catalogo</a>
+   </section>
 
    <section class="home-category">
 
-      <h1 class="title">Nuestros Productos</h1>
+      <h1 class="title">Top 3 de nuestros productos mas vendidos</h1>
 
       <div class="box-container">
 
          <div class="box box-1">
             <br><h3>Líneas Capilares</h3><br>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem, quaerat.</p><br>
-            <a href="{{ route('category.index',['name'=>'fruits']) }}" class="btn">Líneas Capilares</a>
+           <br> <a href="{{ route('category.index',['name'=>'fruits']) }}" class="btn">comprar</a>
          </div>
 
          <div class="box box-2">
          <br> <h3>Línea Infantil</h3><br>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem, quaerat.</p><br>
-            <a href="{{ route('category.index',['name'=>'vegitables']) }}" class="btn">Línea Infantil</a>
+           <br> <a href="{{ route('category.index',['name'=>'vegitables']) }}" class="btn">comprar</a>
          </div>
 
          <div class="box box-3">
             <br><h3>Línea Masculina</h3><br>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem, quaerat.</p><br>
-            <a href="{{ route('category.index',['name'=>'fish']) }}" class="btn">Línea Masculina</a>
+           <br> <a href="{{ route('category.index',['name'=>'fish']) }}" class="btn">comprar</a>
          </div>
 
          <div class="box box-4">
-         <br> <h3>Catalogo</h3><br>
+            <br><h3>Línea Masculina</h3><br>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem, quaerat.</p><br>
-            <a href="{{ route('category.index',['name'=>'meat']) }}" class="btn">Catalogo</a>
+            <br><a href="{{ route('category.index',['name'=>'fish']) }}" class="btn">catalogo</a>
          </div>
 
       </div>
 
-   </section>
+   </section><br>
 
+   <br> <div class="custom-bg">
+
+      <section class="custom-home">
+  
+          <div class="custom-content">
+              <h3>Nueva línea Masculina</h3>
+              <p>Nuestra nueva línea masculina está diseñada para ofrecer una limpieza profunda y revitalizante, dejando el cabello fresco, fuerte y lleno de vitalidad. Estos productos están formulados con ingredientes naturales que hidratan y nutren el cuero cabelludo, combatiendo la sequedad y la caspa. </p>
+           
+          </div>
+  
+      </section>
+  
+  </div>
+{{-- 
    <section class="products">
 
       <h1 class="title">Ultimos productos</h1>
@@ -84,6 +108,8 @@
       </div>
 
    </section>
+   --}}
+
    <x-slot name="footer">
 
    </x-slot>

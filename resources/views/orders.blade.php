@@ -5,7 +5,7 @@
 
 <section class="placed-orders">
 
-   <h1 class="title">placed orders</h1>
+   <h1 class="title">Ordenes Realizadas</h1>
 
    <div class="box-container">
    @if ($orders->isNotEmpty())
@@ -13,9 +13,9 @@
       <div class="box">
          <p> F. Registro : <span>{{ $order['placed_on'] }}</span> </p>
          <p> Nombre : <span>{{ $order['name'] }}</span> </p>
-         <p> Telefono : <span>{{ $order['number'] }}</span> </p>
+         <p> Teléfono : <span>{{ $order['number'] }}</span> </p>
          <p> Email : <span>{{ $order['email'] }}</span> </p>
-         <p> Direccion : <span>{{ $order['address'] }}</span> </p>
+         <p> Dirección : <span>{{ $order['address'] }}</span> </p>
          <p> Metodo de pago : <span>{{ $order['method'] }}</span> </p>
          <p> Productos : <span>{{ $order['total_products'] }}</span> </p>
          <p> Precio total : <span>$ {{ $order['total_price'] }}/-</span> </p>

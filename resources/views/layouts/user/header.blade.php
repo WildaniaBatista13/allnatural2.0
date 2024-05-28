@@ -12,7 +12,7 @@
         </div>
 
         <div class="container-logo">
-            <i class="fa-solid fa-droplet" style="color: #A8EEF1;"></i>
+            <i class="fa-solid fa-droplet" style="color: #9ad7d9;"></i>
             <h1 class="logo"><a href="/">All Natural</a></h1>
         </div>
 

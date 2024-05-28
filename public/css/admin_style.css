@@ -10,7 +10,6 @@
 .dashboard .box-container .box{
    padding:1.5rem;
    text-align: center;
-   border:var(--border);
    box-shadow: var(--box-shadow);
    background-color: var(--white);
    border-radius: .5rem;
@@ -23,11 +22,11 @@
 
 .dashboard .box-container .box p{
    font-size: 2rem;
-   background-color: var(--light-bg);
+   background-color: var(--white);
    color:var(--light-color);
    padding:1.5rem;
    margin:1rem 0;
-   border:var(--border);
+  
    border-radius: .5rem;
    color:var(--black);
 }
