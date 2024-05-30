@@ -5,15 +5,16 @@
 
 <section class="p-category">
 
-   <a href="{{ route('category.index',['name'=>'fruits']) }}">Líneas Capilares</a>
-   <a href="{{ route('category.index',['name'=>'vegitables']) }}">Línea Infantil</a>
-   <a href="{{ route('category.index',['name'=>'fish']) }}">Línea Masculina</a>
-   <a href="{{ route('category.index',['name'=>'meat']) }}">Catalogo</a>
+   <a href="{{ route('category.index',['name'=>'Líneas Capilares']) }}">Líneas Capilares</a>
+   <a href="{{ route('category.index',['name'=>'infantes']) }}">Línea Infantil</a>
+   <a href="{{ route('category.index',['name'=>'masculina']) }}">Línea Masculina</a>
+   <a href="{{ route('category.index',['name'=>'catálogo']) }}">Catalogo</a>
 </section>
+
 
 <section class="products">
 
-   <h1 class="title">Ultimos productos</h1>
+   <h1 class="title">Todos nuestros productos</h1>
 
    <div class="box-container">
    @if ($products->isNotEmpty())
@@ -42,6 +43,7 @@
    </div>
 
 </section>
+
 
 <x-slot name="footer">
 

@@ -39,6 +39,7 @@
             <a href="{{ route('shop.index') }}">Tienda</a>
             <a href="{{ route('order.index') }}">Ordenes</a>
             <a href="{{ route('about.index') }}">Sobre nosotros</a>
+            <a href="{{ route('about.index') }}">Blog</a>
             <a href="{{ route('message.index',['type'=>'user']) }}">Contacto</a>
         </nav>
 

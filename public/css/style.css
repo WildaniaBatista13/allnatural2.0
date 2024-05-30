@@ -32,7 +32,7 @@
 .home-bg .home{
    display: flex;
    align-items: center;
-   min-height: 60vh;
+   min-height: 70vh;
 }
 
 .home-bg .home .content{
@@ -85,20 +85,24 @@
    background-position: center;
 }
 
+.home-category .title span {
+   font-family: "Dancing Script", cursive;
+}
+
 .home-category .box-container .box-1 {
-   background-image: url('../images/card/poo.png');
+   background-image: url('../images/card/1.png');
 }
 
 .home-category .box-container .box-2 {
-   background-image: url('../images/card/m.png');
+   background-image: url('../images/card/2.png');
 }
 
 .home-category .box-container .box-3 {
-   background-image: url('../images/card/g.png');
+   background-image: url('../images/card/3.png');
 }
 
 .home-category .box-container .box-4 {
-   background-image: url('../images/card/card4.jpg');
+   background-image: url('../images/card/4.png');
 }
 
 
@@ -808,32 +812,31 @@
 }
 
 .custom-bg {
-   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/f.png') no-repeat;
+   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/top.png') no-repeat;
    background-size: cover;
    background-position: center;
-   font-family: "Belleza", sans-serif;
 }
 
 .custom-bg .custom-home {
    display: flex;
-   align-items: center;
+   align-items: justify;
    min-height: 60vh;
 }
 
 .custom-bg .custom-home .custom-content {
-   width: 50rem;
+   width: 55rem;
 }
 
 .custom-bg .custom-home .custom-content h3 {
    font-size: 3rem;
    margin-top: 1.5rem;
    color: var(--white);
+   font-weight: bold;
 }
 
 .custom-bg .custom-home .custom-content p {
    font-size: 1.7rem;
    font-family: "EB Garamond", serif;
-   font-weight: bold;
    padding: 1rem 0;
    line-height: 2;
    color: var(--white);
@@ -845,6 +848,45 @@
    font-size: 20px;
    background-color: var(--brown);
 }
+
+.masculine-bg {
+   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/uwu.png') no-repeat;
+   background-size: cover;
+   background-position: center;
+}
+
+.masculine-bg .masculine-home {
+   display: flex;
+   align-items: center;
+   min-height: 60vh;
+}
+
+.masculine-bg .masculine-home .masculine-content {
+   width: 55rem;
+}
+
+.masculine-bg .masculine-home .masculine-content h3 {
+   font-size: 3rem;
+   margin-top: 1.5rem;
+   color: var(--white);
+   font-weight: bold;
+}
+
+.masculine-bg .masculine-home .masculine-content p {
+   font-size: 1.7rem;
+   font-family: "EB Garamond", serif;
+   padding: 1rem 0;
+   line-height: 2;
+   color: var(--white);
+}
+
+.masculine-bg .masculine-home .masculine-content a {
+   display: inline-block;
+   width: auto;
+   font-size: 20px;
+   background-color: var(--brown);
+}
+
 
 
 .about-bg {

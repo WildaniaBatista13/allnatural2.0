@@ -10,10 +10,10 @@
       <input type="text" value="{{ old('name', $data->name) }}" name="name" class="box" required placeholder="Ingresar nombre del producto">
       <select name="category" class="box" required>
          <option value="" {{ $data->category==""??'selected' }} disabled>Seleccionar categoría</option>
-            <option {{ $data->category=="vegitables"??'selected' }} value="vegitables">Líneas Capilares</option>
-            <option {{ $data->category=="fruits"??'selected' }}  value="fruits">Línea Infantil</option>
-            <option {{ $data->category=="meat"??'selected' }}  value="meat">Línea Masculina</option>
-            <option {{ $data->category=="fish"??'selected' }}  value="fish">Catálogo</option>
+            <option {{ $data->category=="Líneas Capilares"??'selected' }} value="Líneas Capilares">Líneas Capilares</option>
+            <option {{ $data->category=="infantes"??'selected' }}  value="infantes">Línea Infantil</option>
+            <option {{ $data->category=="masculina"??'selected' }}  value="masculina">Línea Masculina</option>
+            <option {{ $data->category=="catálogo"??'selected' }}  value="catálogo">Catálogo</option>
       </select>
       </div>
       <div class="inputBox">
